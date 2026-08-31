@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ResNet Vision | AI Image Classifier</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+    <div class="background-glow glow-1"></div>
+    <div class="background-glow glow-2"></div>
+
+    <div class="container">
+
+        <header class="header">
+
+            <div class="brand">
+
+                <div class="brand-icon">
+                    ✦
+                </div>
+
+                <div>
+
+                    <h2>ResNet Vision</h2>
+
+                    <p>AI Image Classifier</p>
+
+                </div>
+
+            </div>
+
+            <div class="status">
+
+                <span class="status-dot"></span>
+
+                Model Online
+
+            </div>
+
+        </header>
+
+
+        <section class="hero">
+
+            <div class="tag">
+                ✦ POWERED BY DEEP LEARNING
+            </div>
+
+            <h1>
+                See the world<br>
+                <span>through AI.</span>
+            </h1>
+
+            <p>
+                Upload an image and let our ResNet-18
+                deep learning model identify what's inside.
+            </p>
+
+        </section>
+
+
+        <main class="bento-grid">
+
+
+            <section class="card upload-card">
+
+                <div class="card-top">
+
+                    <div>
+
+                        <span class="card-label">
+                            IMAGE INPUT
+                        </span>
+
+                        <h3>Upload Image</h3>
+
+                    </div>
+
+                    <span class="number">
+                        01
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="drop-zone"
+                    id="dropZone"
+                >
+
+                    <input
+                        type="file"
+                        id="imageInput"
+                        accept="image/png, image/jpeg, image/jpg"
+                    >
+
+
+                    <div
+                        class="upload-content"
+                        id="uploadContent"
+                    >
+
+                        <div class="upload-icon">
+                            ↑
+                        </div>
+
+                        <h4>
+                            Drop your image here
+                        </h4>
+
+                        <p>
+                            or
+                            <span>browse files</span>
+                        </p>
+
+                        <small>
+                            JPG, JPEG or PNG
+                        </small>
+
+                    </div>
+
+
+                    <div
+                        class="image-preview"
+                        id="imagePreview"
+                    >
+
+                        <img
+                            id="previewImage"
+                            src=""
+                            alt="Preview"
+                        >
+
+                        <button
+                            type="button"
+                            id="removeImage"
+                        >
+                            ×
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="analyze-btn"
+                    id="analyzeBtn"
+                    disabled
+                >
+
+                    <span id="buttonText">
+                        Analyze Image
+                    </span>
+
+                    <span class="button-arrow">
+                        →
+                    </span>
+
+                </button>
+
+            </section>
+
+
+            <section class="card prediction-card">
+
+                <div class="card-top">
+
+                    <div>
+
+                        <span class="card-label">
+                            AI ANALYSIS
+                        </span>
+
+                        <h3>Prediction</h3>
+
+                    </div>
+
+                    <span class="number">
+                        02
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="prediction-content"
+                    id="predictionContent"
+                >
+
+                    <div class="waiting">
+
+                        <div class="waiting-icon">
+                            ◉
+                        </div>
+
+                        <h4>
+                            Ready to analyze
+                        </h4>
+
+                        <p>
+                            Upload an image to get
+                            your prediction.
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        class="prediction-result"
+                        id="predictionResult"
+                    >
+
+                        <span class="result-label">
+                            TOP PREDICTION
+                        </span>
+
+                        <h2 id="prediction">
+                            -
+                        </h2>
+
+
+                        <div class="confidence-box">
+
+                            <div
+                                class="confidence-circle"
+                                id="confidenceCircle"
+                            >
+
+                                <span id="confidence">
+                                    0%
+                                </span>
+
+                            </div>
+
+
+                            <div class="confidence-info">
+
+                                <span>
+                                    CONFIDENCE
+                                </span>
+
+                                <p id="confidenceText">
+                                    -
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <section class="card model-card">
+
+                <span class="card-label">
+                    MODEL
+                </span>
+
+                <div class="model-value">
+                    ResNet-18
+                </div>
+
+                <p>
+                    Pretrained<br>
+                    Image Classifier
+                </p>
+
+            </section>
+
+
+            <section class="card dataset-card">
+
+                <span class="card-label">
+                    DATASET
+                </span>
+
+                <div class="model-value">
+                    CIFAR-10
+                </div>
+
+                <p>
+                    10 object classes<br>
+                    32 × 32 input
+                </p>
+
+            </section>
+
+
+            <section class="card predictions-card">
+
+                <div class="card-top">
+
+                    <div>
+
+                        <span class="card-label">
+                            PROBABILITY DISTRIBUTION
+                        </span>
+
+                        <h3>Top Predictions</h3>
+
+                    </div>
+
+                    <span class="number">
+                        03
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="prediction-list"
+                    id="predictionList"
+                >
+
+                    <div class="empty-list">
+                        Predictions will appear here
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+
+        <footer>
+
+            <span>
+                Built with PyTorch
+            </span>
+
+            <span class="footer-dot">
+                •
+            </span>
+
+            <span>
+                FastAPI
+            </span>
+
+            <span class="footer-dot">
+                •
+            </span>
+
+            <span>
+                CIFAR-10
+            </span>
+
+        </footer>
+
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+
